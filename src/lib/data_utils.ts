@@ -1,6 +1,6 @@
-import { aa_quotes } from '$lib/data/aa_qoutes';
-import { big_book_quotes } from '$lib/data/big_book_quotes';
-import type { AAQuotesType } from './types';
+import { aa_quotes } from '$lib/data/aa_qoutes'
+import { big_book_quotes } from '$lib/data/big_book_quotes'
+import type { AAQuotesType } from './types'
 
 export async function getAAQuotes(): Promise<AAQuotesType[]> {
 	try {
@@ -8,16 +8,16 @@ export async function getAAQuotes(): Promise<AAQuotesType[]> {
 			headers: {
 				'content-type': 'application/json'
 			}
-		});
-		return await res.json();
+		})
+		return await res.json()
 	} catch (error: any) {
 		const res = new Response(JSON.stringify({ message: error.message }), {
 			status: 500,
 			headers: {
 				'content-type': 'application/json'
 			}
-		});
-		return await res.json();
+		})
+		return await res.json()
 	}
 }
 
@@ -27,15 +27,15 @@ export async function getBigBookQuotes(): Promise<AAQuotesType[]> {
 			headers: {
 				'content-type': 'application/json'
 			}
-		});
-		return await res.json();
+		})
+		return await res.json()
 	} catch (error: any) {
 		const res = new Response(JSON.stringify({ message: error.message }), {
 			status: 500,
 			headers: {
 				'content-type': 'application/json'
 			}
-		});
-		return await res.json();
+		})
+		return await res.json()
 	}
 }

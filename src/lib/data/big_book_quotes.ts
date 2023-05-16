@@ -202,4 +202,4 @@ export const big_book_quotes = [
 		quote: 'The newcomer is always welcome in Alcoholics Anonymous.',
 		book_location: 'Chapter 7, "Working with Others"'
 	}
-];
+]

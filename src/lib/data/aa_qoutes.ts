@@ -1279,4 +1279,4 @@ export const aa_quotes = [
 	{
 		quote: 'From darkness comes light.'
 	}
-];
+]

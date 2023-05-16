@@ -1,15 +1,15 @@
 <script lang="ts">
-	import { AppBar, AppShell } from '@skeletonlabs/skeleton';
+	import { AppBar, AppShell } from '@skeletonlabs/skeleton'
 	// import '$lib/styles/global.css';
 	// The ordering of these imports is critical to your app working properly
-	import '@skeletonlabs/skeleton/themes/theme-gold-nouveau.css';
+	import '@skeletonlabs/skeleton/themes/theme-gold-nouveau.css'
 	// If you have source.organizeImports set to true in VSCode, then it will auto change this ordering
-	import '@skeletonlabs/skeleton/styles/all.css';
+	import '@skeletonlabs/skeleton/styles/all.css'
 	// Most of your app wide CSS should be put in this file
-	import '../app.postcss';
+	import '../app.postcss'
 
 	function scrollHandler(event: UIEvent & { currentTarget: EventTarget & HTMLDivElement }) {
-		console.log(event.currentTarget.scrollTop);
+		console.log(event.currentTarget.scrollTop)
 	}
 </script>
 
