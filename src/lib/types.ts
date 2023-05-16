@@ -7,6 +7,12 @@ export type BigBookQuotesType = {
 	book_location: string
 }
 
+export type JFTQuotesType = {
+	quote: string
+	book_location: string
+	data: string
+}
+
 export type PageData = {
 	aa_quotes: AAQuotesType[]
 	big_book_quotes: BigBookQuotesType[]

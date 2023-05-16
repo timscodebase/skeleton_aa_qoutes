@@ -1,8 +1,10 @@
 <script lang="ts">
-	import type { AAQuotesType, BigBookQuotesType } from '$lib/types'
+	import type { AAQuotesType, BigBookQuotesType, JFTQuotesType } from '$lib/types'
 	import { onMount } from 'svelte'
 
-	export let quotes: AAQuotesType[] | BigBookQuotesType[] = []
+	type QuotesType = AAQuotesType[] | BigBookQuotesType[] | JFTQuotesType[]
+
+	export let quotes: QuotesType = []
 	export let speedIsSeconds: number = 5
 
 	const speed = speedIsSeconds * 1000
@@ -22,37 +24,32 @@
 	}
 
 	let timeoutId: string | number | NodeJS.Timeout | undefined
-	let sliderRef: HTMLDivElement
-	let width: number
 
 	const quote = quotes[index]
 
 	onMount(() => {
-		console.log('width', width)
 		const transition = () => {
 			nextQuote()
 			timeoutId = setTimeout(transition, speed)
-		}
-
-		if (width > 768 && quote.book_location) {
-			sliderRef.style.setProperty('--slider-height', '200px')
-		} else {
-			sliderRef.style.setProperty('--slider-height', '150px')
 		}
 
 		return () => clearTimeout(timeoutId)
 	})
 </script>
 
-<svelte:window bind:innerWidth={width} />
-
-<div class="slider" bind:this={sliderRef}>
+<div class="slider">
 	<button class="variant-ghost-primary" on:click={prevQuote}>prev</button>
 	<div class="quote">
 		<p>{quote.quote}</p>
-		{#if quote.book_location}
-			<p>{quote.book_location}</p>
-		{/if}
+
+		<!-- <div class="meta">
+			{#if quote.book_location}
+				<p>{quote.book_location}</p>
+			{/if}
+			{#if quote.date}
+				<p>{quote.date}</p>
+			{/if}
+		</div> -->
 	</div>
 	<button class="variant-ghost-primary" on:click={nextQuote}>next</button>
 </div>
@@ -74,6 +71,12 @@
 		display: grid;
 		place-items: center;
 		gap: 1rem;
+	}
+
+	.meta {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
 	}
 
 	button {
