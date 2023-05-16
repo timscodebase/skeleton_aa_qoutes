@@ -21,7 +21,7 @@
 		updateIndex(-1);
 	}
 
-	let timeoutId: string | number | NodeJS.Timeout | undefined
+	let timeoutId: string | number | NodeJS.Timeout | undefined;
 
 	onMount(() => {
 		const transition = () => {
